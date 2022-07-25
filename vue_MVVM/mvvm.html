@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div id="app">
+      <P>测试:{{test}}</P>
+      <input type="text" v-model='test'>
+      {{say}}
+  </div>
+</body>
+</html>
+
+<script src="./dep-subs.js"></script>
+<script src="./computed.js"></script>
+<script src="./observe.js"></script>
+<script src="./proxyData.js"></script>
+<script src="./compile.js"></script>
+<script src="./mvvm.js"></script>
+<script>
+    let mvvm = new Mvvm({
+        el: '#app',
+        data:{ test:'Hello,World!', msg:{creator: 'yzt' }},
+        //computed 可以缓存 只是把数据挂在mvvm上
+        computed:{
+          say(){
+            return this.test  + '--------' + this.msg.creator
+          }
+        }
+    })
+
+</script>
